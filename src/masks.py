@@ -10,7 +10,7 @@ def get_mask_card_number(card_number: str) -> str:
         7000 7922_8960-6361 --> 7000 79** **** 6361
     """
     # Оставляем только цифры
-    digits = ''.join(char for char in card_number if char.isdigit())
+    digits = "".join(char for char in card_number if char.isdigit())
 
     # Проверяем что номер карты содержит 16 цифр
     if len(digits) != 16:
@@ -28,16 +28,16 @@ def get_mask_card_number(card_number: str) -> str:
 
 def get_mask_account(account_number: str) -> str:
     """
-        Маскирует номер счёта в формате **XXXX
+    Маскирует номер счёта в формате **XXXX
 
-        account_number - Номер счёта (8 цифр)
+    account_number - Номер счёта (8 цифр)
 
-        Returns - Маскированный номер в формате **XXXX
-        """
+    Returns - Маскированный номер в формате **XXXX
+    """
     # Оставляем только цифры
-    digits = ''.join(char for char in account_number if char.isdigit())
+    digits = "".join(char for char in account_number if char.isdigit())
     # Проверяем что номер счёта содержит 8 цифр
-    if len(digits) != 8:
-        raise ValueError(f"Номер счёта должен содержать 8 цифр, получено: {len(digits)}")
+    if len(digits) != 20:
+        raise ValueError(f"Номер счёта должен содержать 20 цифр, получено: {len(digits)}")
 
     return f"**{digits[-4:]}"
