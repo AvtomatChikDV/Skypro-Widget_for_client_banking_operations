@@ -93,7 +93,6 @@ git clone https://github.com/AvtomatChikDV/Skypro-Widget_for_client_banking_oper
 
 + Добавление тестов
 
-
 # Команда проекта
 Dmitry Kalyuzhnyy - Beginner Python developer
 
