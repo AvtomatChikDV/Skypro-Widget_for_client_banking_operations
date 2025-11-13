@@ -1,6 +1,6 @@
 import pytest
 
-from src.widget import mask_account_card, get_date
+from src.widget import get_date, mask_account_card
 
 
 @pytest.mark.parametrize(
@@ -14,12 +14,12 @@ from src.widget import mask_account_card, get_date
         ("  Счет   40817810099910004312 ", "Счет **4312"),  # С пробелами
     ],
 )
-def test_account_card_masking(input_data, expected):
+def test_account_card_masking(input_data: str, expected: str) -> None:
     """Тестирование маскирования стандартных карт и счетов"""
     assert mask_account_card(input_data) == expected
 
 
-def test_no_input():
+def test_no_input() -> None:
     """Тестирование пустых данных"""
     with pytest.raises(ValueError):
         mask_account_card("")
@@ -34,8 +34,8 @@ def test_no_input():
         ("Maestro 123dsfsd4#5678-45678"),  # Левые символы
     ],
 )
-def test_invalid_input(invalid_data):
-    """Тестирование некорректных входных данных, ожидаемый вывод ошибки ValueError """
+def test_invalid_input(invalid_data: str) -> None:
+    """Тестирование некорректных входных данных, ожидаемый вывод ошибки ValueError"""
     with pytest.raises(ValueError):
         mask_account_card(invalid_data)
 
@@ -58,7 +58,7 @@ def test_invalid_input(invalid_data):
         ("2000-02-29T12:00:00.000000", "29.02.2000"),  # Високосный год
     ],
 )
-def test_valid_iso_dates(input_date, expected):
+def test_valid_iso_dates(input_date: str, expected: str) -> None:
     """Тестирование стандартных форматов дат"""
     assert get_date(input_date) == expected
 
@@ -80,6 +80,6 @@ def test_valid_iso_dates(input_date, expected):
         "2024-02-30",  # Невалидная дата (30 февраля)
     ],
 )
-def test_invalid_or_unsupported_formats(input_date):
+def test_invalid_or_unsupported_formats(input_date) -> None:
     """Тестирование невалидных или неподдерживаемых форматов"""
     assert get_date(input_date) == "Неправильная дата!!!"

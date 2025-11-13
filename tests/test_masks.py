@@ -1,6 +1,6 @@
 import pytest
 
-from src.masks import get_mask_card_number, get_mask_account
+from src.masks import get_mask_account, get_mask_card_number
 
 
 @pytest.mark.parametrize(
@@ -14,7 +14,7 @@ from src.masks import get_mask_card_number, get_mask_account
         ("5346 3643 2354 8798", "5346 36** **** 8798"),  # Номер с пробелами
     ],
 )
-def test_get_mask_card_number(card_number, expected):
+def test_get_mask_card_number(card_number: str, expected: str) -> None:
     """Функция проверки стандартных номеров карт"""
     assert get_mask_card_number(card_number) == expected
 
@@ -29,7 +29,7 @@ def test_get_mask_card_number(card_number, expected):
         "757 097#@)?8 5",  # Номер со специальными знаками, пробелами
     ],
 )
-def test_get_mask_card_invalid_number(invalid_cards):
+def test_get_mask_card_invalid_number(invalid_cards: str) -> None:
     """
     Функция проверки неправильных номеров карт,
     пропускаются номера стандартного размера 16 чисел.
@@ -49,7 +49,7 @@ def test_get_mask_card_invalid_number(invalid_cards):
         ("0673 0710099910-002452", "**2452"),  # Номер со специальными символами
     ],
 )
-def test_get_mask_account(account_number, expected):
+def test_get_mask_account(account_number: str, expected: str) -> None:
     """Функция проверки стандартных номеров счетов"""
     assert get_mask_account(account_number) == expected
 
@@ -64,7 +64,7 @@ def test_get_mask_account(account_number, expected):
         "",
     ],
 )
-def test_get_mask_invalid_account(invalid_accounts):
+def test_get_mask_invalid_account(invalid_accounts) -> None:
     """
     Функция проверки неправильных номеров счетов,
     пропускаются номера стандартного размера 20 чисел.
