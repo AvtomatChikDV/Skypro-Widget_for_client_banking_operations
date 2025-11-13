@@ -27,7 +27,7 @@ def test_get_mask_card_number(card_number, expected):
         "",  # Номер не введён
         "1234567812345674645645646465",  # Длинный номер
         "757 097#@)?8 5",  # Номер со специальными знаками, пробелами
-    ]
+    ],
 )
 def test_get_mask_card_invalid_number(invalid_cards):
     """
@@ -47,26 +47,28 @@ def test_get_mask_card_invalid_number(invalid_cards):
         ("40898794646910004378", "**4378"),
         ("06730710099910002452", "**2452"),
         ("0673 0710099910-002452", "**2452"),  # Номер со специальными символами
-    ]
+    ],
 )
 def test_get_mask_account(account_number, expected):
     """Функция проверки стандартных номеров счетов"""
     assert get_mask_account(account_number) == expected
 
-@pytest.mark.parametrize('invalid_accounts',[
+
+@pytest.mark.parametrize(
+    "invalid_accounts",
+    [
         "1jkghkshg78901234567890",  # Номер с буквами
         "408178 1009№%_-)(№004312",  # Номер со специальными символами
         "408987946469100",  # Короткий номер
         "06730710099910474453002452",  # Длинный номер
-        ""
-    ])
+        "",
+    ],
+)
 def test_get_mask_invalid_account(invalid_accounts):
     """
-        Функция проверки неправильных номеров счетов,
-        пропускаются номера стандартного размера 20 чисел.
-        Программа выводит ошибку Value Error(f"Номер счёта должен содержать 20 цифр, получено: {len(digits)}")
-        """
+    Функция проверки неправильных номеров счетов,
+    пропускаются номера стандартного размера 20 чисел.
+    Программа выводит ошибку Value Error(f"Номер счёта должен содержать 20 цифр, получено: {len(digits)}")
+    """
     with pytest.raises(ValueError):
         get_mask_account(invalid_accounts)
-
-
