@@ -139,7 +139,7 @@ sorted_asc = sort_by_date(operations, reverse=False)
 ## Запуск тестов
 
 Покрытие программы тестами составляет:
-
+```
 Name                       Stmts   Miss  Cover
 ----------------------------------------------
 src\__init__.py                0      0   100%
@@ -153,7 +153,7 @@ tests\test_processing.py      32      0   100%
 tests\test_widget.py          18      0   100%
 ----------------------------------------------
 TOTAL                        114      0   100%
-
+```
 
 ### Все тесты
 
