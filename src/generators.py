@@ -6,11 +6,8 @@ def filter_by_currency(transactions: list, currency: str):
 
     for transaction in transactions:
 
-        try:
-            if transaction["operationAmount"]["currency"]["code"] == currency:
-                yield transaction
-        except (KeyError, TypeError):
-            continue
+        if transaction["operationAmount"]["currency"]["code"] == currency:
+            yield transaction
 
 
 def transaction_descriptions(transactions: list):
@@ -20,10 +17,7 @@ def transaction_descriptions(transactions: list):
     """
 
     for transaction in transactions:
-        try:
-            yield transaction["description"]
-        except (KeyError, TypeError):
-            continue
+        yield transaction["description"]
 
 
 def card_number_generator(start: int, end: int):
