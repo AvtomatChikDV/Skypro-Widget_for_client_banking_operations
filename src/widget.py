@@ -31,8 +31,7 @@ def get_date(data_info: str) -> str:
 
     try:
         # Проверяем валидность даты
-        datetime.strptime(date_str, '%d.%m.%Y')
+        datetime.strptime(date_str, "%d.%m.%Y")
         return date_str
     except ValueError:
         return "Неправильная дата!!!"
-
