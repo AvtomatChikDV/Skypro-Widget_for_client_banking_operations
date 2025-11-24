@@ -6,7 +6,6 @@ def filter_by_state(operations: list[dict], state: str = "EXECUTED") -> list[dic
      {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'} и т.д.]
     """
 
-
     return [item for item in operations if item["state"] == state]
 
 
