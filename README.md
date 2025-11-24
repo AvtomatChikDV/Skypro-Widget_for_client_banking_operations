@@ -140,23 +140,18 @@ sorted_asc = sort_by_date(operations, reverse=False)
 
 Покрытие программы тестами составляет:
 ```
-Name                       Stmts   Miss  Cover
-----------------------------------------------
-src\__init__.py                0      0   100%
-src\masks.py                  15      0   100%
-src\processing.py              4      0   100%
-src\widget.py                 22      0   100%
-tests\__init__.py              0      0   100%
-tests\conftest.py              7      0   100%
-tests\test_masks.py           16      0   100%
-tests\test_processing.py      32      0   100%
-tests\test_widget.py          18      0   100%
-----------------------------------------------
-TOTAL                        114      0   100%
+Name                Stmts   Miss  Cover
+---------------------------------------
+src\__init__.py         0      0   100%
+src\generators.py      12      0   100%
+src\masks.py           15      0   100%
+src\processing.py       4      0   100%
+src\widget.py          22      0   100%
+---------------------------------------
+TOTAL                  53      0   100%
 ```
 
 ### Все тесты
-
 
 pytest --cov=src
 
